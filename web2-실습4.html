@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title> 실습4 </title>
+		<style>
+			#wrap {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+			}
+			.box {
+				width: 50px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap"> 
+			<div class="box" style="background-color:red" onmouseover="redBg()"></div>
+			<div class="box" style="background-color:blue" onmouseover="blueBg()"></div>
+			<div class="box" style="background-color:green" onmouseover="greenBg()"></div>
+		</div>
+	</body>
+	<script>
+		function redBg() {
+			document.getElementsByTagName("body")[0].style.backgroundColor = "red";
+		}
+		function blueBg() {
+			document.getElementsByTagName("body")[0].style.backgroundColor = "blue";
+		}
+		function greenBg() {
+			document.getElementsByTagName("body")[0].style.backgroundColor = "green";
+		}
+	</script>
+</html>
