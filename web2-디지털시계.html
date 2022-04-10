@@ -1,0 +1,91 @@
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>시계</title>
+	<style>
+		* { font-family: 'Garamond' }
+		body { background: linear-gradient(40deg,#141E30,#243B55) }
+		#Content {
+			width: 700px;
+			display: flex;
+			justify-content: center;
+			padding: 50px;
+			margin: 0 auto;
+			margin-top: 150px;
+			background: rgba(0, 0, 0, 0.20);
+			border-radius: 25px;
+		}
+		.dateBox {
+			width: 200px;
+			height: 28px;
+			display: flex;
+			justify-content: center;
+			margin: 5px 10px;
+			padding: 5px;
+			border-radius: 20px;
+			background: rgba(0, 0, 0, 0.60);
+		}
+		#Date {
+			font-size : 24px;
+			padding: 0;
+			color : #d9d9d9;
+		}
+		#Day {
+			text-align: center;
+			margin: 0;
+			font-size: 80px;
+			font-family: 'Impact';
+			color : #4c7fff;
+		}
+		#Time {
+			font-size : 150px;
+			margin : 0 auto;
+			color : #7092be;
+		}
+	</style>
+	<script>
+	function show_clock() {
+		var current = new Date();
+		var year = current.getFullYear();
+		var month = form(current.getMonth());
+		var date = form(current.getDate());
+		var day = current.getDay();
+		//숫자로 된 요일 문자열로 바꾸기(0 = 일요일)
+		switch (day) {
+			case 0: day = "S U N"; break;
+			case 1: day = "M O N"; break;
+			case 2: day = "T U E"; break;
+			case 3: day = "W E D"; break;
+			case 4: day = "T H U"; break;
+			case 5: day = "F R I"; break;
+			case 6: day = "S A T"; break;
+		}
+		var hour = form(current.getHours());
+		var minute = form(current.getMinutes());
+		var second = form(current.getSeconds());
+		
+		document.getElementById("Date").innerHTML=year+". "+month+". "+date;
+		document.getElementById("Day").innerHTML=day;
+		document.getElementById("Time").innerHTML=hour+":"+minute+":"+second;
+		
+		setTimeout("show_clock()",1000);
+	}
+	//한자리인 시간을 2자리형식으로
+	function form(num) {
+		if (num < 10) {
+			num = '0'+num;
+		}
+		return num;
+	}
+	</script>
+</head>
+<body onload="show_clock()">
+	<div id="Content">
+		<div>
+			<div class="dateBox"> <div id="Date"></div> </div>
+			<p id="Day"></p>
+		</div>
+		<span id="Time"></span>
+	</div>
+</body>
+</html>
